@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-xl-6 col-lg-6 col-md-6 mx-auto" style="color:#01161E">
+    <form novalidate="" name="form">
+      <div class="form-group text-center mt-3">
+        <label for="nameForm">Nom : </label>
+        <input type="text" name="name" ng-model="name" id="nameForm" placeholder="Nom" ng-pattern="regexName" required="" />
+        <div class="error" style="color:#01161E" ng-show="form.name.$error.pattern">Votre nom n'est pas valide, minimum 3 caractères et pas de chiffres!</div>
+      </div>
+      <div class="form-group text-center">
+        <label for="emailForm">Email :</label>
+        <input type="emailSelect" name="email" ng-model="email" id="emailForm" ng-pattern="regexMail" placeholder="pseudo@mail.com" required="" />
+        <div class="error" style="color:#01161E" ng-show="form.email.$error.pattern">Ceci n'est pas un mail valide!</div>
+      </div>
+      <div class="form-group text-center">
+        <label for="subjectForm">Objet : </label>
+        <input type="text" name="subject" ng-model="subject" id="subjectForm" ng-pattern="regexSubject" placeholder="sujet du mail..." minlength="5" required="" />
+        <div class="error" style="color:#01161E" ng-show="form.subject.$error.pattern">Merci de rentrer un sujet entre 5 et 20 caractères!</div>
+      </div>
+      <div class="form-group text-center">
+        <label for="messageForm"></label>
+        <textarea name="message" ng-model="message" rows="8" id="messageForm" ng-pattern="regexMessage" cols="40" required=""></textarea>
+        <div class="error" style="color:#01161E" ng-show="form.message.$error.pattern">Votre message doit comporter entre 20 et 1000 caractères!</div>
+      </div>
+      <div class="form-group text-center">
+        <button ng-click="sendMail()" class="btn btn-info" ng-disabled="form.$invalid" type="submit" name="sendMail">Envoyer le MAIL</button>
+      </div>
+    </form>
+    <ol>
+      <li style="color:#01161E" ng-repeat="subjectLink in subjectArray track by $index"> <!-- ne pas oublier de rajouter track by $index -->
+        <a href="#!/mail/{{$index}}"> {{subjectLink}}</a>
+      </li>
+    </ol>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="assets/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="index.css">
+  <script src="assets/js/angular.js" charset="utf-8" />
+  </script>
+  <script src="index.js"></script>
+
+  <title>Exercice Bonus 1</title>
+</head>
+
+<body ng-app="app">
+  <div class="row">
+    <div class="col-6 text-center mx-auto">
+
+      <div>
+        <form novalidate name="form" class="formMail" ng-controller="myControler">
+          <label for="email">Saisissez votre adresse mail </br><input name="email" id="email" type="mail" ng-pattern="regexMail" ng-model="email" required="" /></label>
+          <div ng-show="form.email.$error.pattern" class="bg-danger">Ceci n'est pas une adresse mail valide.</div>
+          <div ng-show="form.email.$valid" class="bg-success">Adresse mail valide.</div>
+          <!-- <div ng-class="{green: form.email.$valid, red: form.email.$error.pattern}"></div> -->
+          <!-- je prends la class css green et red  -->
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="assets/bootstrap-4.3.1-dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
